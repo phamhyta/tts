@@ -22,6 +22,7 @@ class AdminHomeController extends Controller
             $customer = Customer::limit(12)->get();
             $news = News::limit(12)->get();
             $full_name = Admin::where('id', '=', auth('admin')-> id()) -> get();
+            //dd($full_name[0] -> full_name);
             return view('back-end.contents.home.manager', ['customers' => $customer, 'full_name' => $full_name, 'news' => $news]);
         }   
     }

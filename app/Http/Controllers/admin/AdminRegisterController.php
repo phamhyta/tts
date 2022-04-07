@@ -40,7 +40,8 @@ class AdminRegisterController extends Controller
         event(new AdminRegister($data_client));
 
         auth('admin')->attempt($request->only('username', 'password'));
-        return redirect()->route('admin.home');
+
+        return redirect()->route('admin.cus.index');
     }
 
     public static function convert_name($str) {
