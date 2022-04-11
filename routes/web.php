@@ -145,6 +145,22 @@ Route::prefix('admin')->group(function() {
         AdminHomeController::class, 'manager'
     ])->name('admin.cus.index');
 
+    //add_customer
+    Route::get('/add_cus', [
+        AdminEditController::class, 'add_cus_index'
+    ])->name('admin.add_cus.index');
+    Route::post('/add_cus', [
+        AdminEditController::class, 'add_cus_update'
+    ])->name('admin.add_cus.update');
+
+    //add_new
+    Route::get('/add_new', [
+        AdminEditController::class, 'add_new_index'
+    ])->name('admin.add_new.index');
+    Route::post('/add_new', [
+        AdminEditController::class, 'add_new_update'
+    ])->name('admin.add_new.update');
+
     //edit
     Route::get('/manager/cus/{id}', [
         AdminEditController::class, 'index_cus'

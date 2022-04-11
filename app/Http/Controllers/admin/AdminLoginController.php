@@ -11,9 +11,9 @@ class AdminLoginController extends Controller
     protected $redirectTo = '/admin';
 
     public function index(){
-        // if(auth('admin') -> check()){
-        //     return redirect()->back();
-        // }
+        if(auth('admin') -> check()){
+            return redirect()->route('admin.cus.index');
+        }
         return view('back-end.contents.admin.login');
     }
     public function store(Request $request){

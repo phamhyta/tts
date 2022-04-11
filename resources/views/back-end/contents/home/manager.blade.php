@@ -28,7 +28,12 @@
     <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
         <h1 class="text-2xl font-semibold">Customers manager</h1>
     </div>
-    <div class="h-screen">
+    <div class="py-2">
+        <a href="{{route('admin.add_cus.index')}}" class="align-middle hover:text-gray-400 border-b-2 border-gray-800">
+            <span class="font-medium">Them nguoi dung</span>
+        </a>
+    </div>
+    <div>
         <div class="mt-2">
             <table class=" w-10/12  mx-auto table-fixed">
                 <thead>
@@ -76,7 +81,12 @@
     <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
         <h1 class="text-2xl font-semibold">News manager</h1>
     </div>
-    <div class="h-screen">
+    <div class="py-2">
+        <a href="{{route('admin.add_new.index')}}" class="align-middle hover:text-gray-400 border-b-2 border-gray-800">
+            <span class="font-medium">Them tin</span>
+        </a>
+    </div>
+    <div class="pb-20">
         <div class="mt-2">
             <table class=" w-10/12  mx-auto table-fixed">
                 <thead>

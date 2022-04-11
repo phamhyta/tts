@@ -11,15 +11,12 @@ use App\Models\News;
 
 class AdminHomeController extends Controller
 {
-    public function Auth_Login(){
-        
-    }
     public function manager(){
         if(auth('admin')->check() != true){
             return redirect()->route('admin.login.index');
         }
         else{
-            $customer = Customer::limit(12)->get();
+            $customer = Customer::whereNot('id', '=', '2') -> limit(12)->get();
             $news = News::limit(12)->get();
             $full_name = Admin::where('id', '=', auth('admin')-> id()) -> get();
             //dd($full_name[0] -> full_name);
@@ -34,7 +31,7 @@ class AdminHomeController extends Controller
             $news = News::limit(12)->get();
             $full_name = Admin::where('id', '=', auth('admin')-> id()) -> get();
             $keywords = $request-> keyword_submit;
-            $search_cus = Customer::where('full_name','like', '%' . $keywords . '%') ->get();
+            $search_cus = Customer::whereNot('id', '=', '2') -> where('full_name','like', '%' . $keywords . '%') ->get();
             //dd($search_cus);
             return view('back-end.contents.home.manager',['customers'=> $search_cus, 'full_name' => $full_name, 'news' => $news]);
         }

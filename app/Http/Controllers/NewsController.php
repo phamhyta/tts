@@ -17,16 +17,11 @@ class NewsController extends Controller
             //dd(auth('customer')-> id());
             $full_name = Customer::where('id', '=', auth('customer')-> id()) -> get();
         }
-        $news = News::limit(12)->get();
+        $news = News::limit(12) -> join('cus','id_cus', "=", 'cus.id') ->get();
         //dd($news);
         return view('front-end.contents.home.news', ['news' => $news, 'full_name' => $full_name]);
     }
     
-    public function newlist($id){
-        $home = News::where('loai_hinhthuc_id', '=', $id) -> get();
-        //dd($home);
-        return view('front-end.contents.estate.homeList', ['home' => $home]);
-    }
     public function search(Request $request){
         $full_name = null;
         if(auth('customer')->check()){

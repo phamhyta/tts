@@ -16,7 +16,7 @@
         <div class="w-11/12 md:w-3/4 m-auto pt-6 xl:flex-row justify-between">
         @foreach ($news as $news)   
             <div class="w-full myBox m-auto border border-gray-400 mt-7 flex-col xl:flex-row xl:flex justify-between mb-10 shadow">
-                <a href="" class="flex">
+                <a href="" class="flex justify-between">
                     <div class="w-full ml-2 px-4 xl:px-0 xl:w-11/12 2xl:w-7/12 mr-6">
                         <p class="font-bold text-orange-700 mb-1 mt-3">
                             {{ $news -> title }}
@@ -24,6 +24,9 @@
                         <p class="mt-3">
                             {{ $news->content }}
                         </p>
+                        <div class="text-sm mt-3 text-gray-600">
+                            Tac gia: {{ $news->full_name }}
+                        </div>
                     </div>
                 </a>
             </div>

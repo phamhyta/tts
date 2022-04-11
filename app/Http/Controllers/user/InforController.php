@@ -35,7 +35,7 @@ class InforController extends Controller
         $request->validate([
             'full_name' => 'required|max:255',
             'username' => 'required|max:255',
-            'email' => 'required|max:255',
+            'email' => 'required|string|email|unique:cus|max:255',
         ]);
         $id_cus = auth('customer')->id();
         $data = [
