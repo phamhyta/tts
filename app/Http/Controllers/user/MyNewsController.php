@@ -16,11 +16,27 @@ class MyNewsController extends Controller
             //dd($full_name[0]);
             return view('front-end.contents.home.newList', ['full_name' => $full_name, 'news' => $new]);
         }
-        else
-        {
+        else{
             return redirect()->route('client.login.index');
         }
     }
+    // public function edit($id){
+    //     //dd($id);
+    //     if(auth('customer')->check()){
+    //         $full_name = Customer::where('id', '=', auth('customer')-> id()) -> get();
+    //         $news = News::where('id', '=', $id) -> get();
+    //         //dd($news[0] -> id_cus);
+    //         if(auth('customer')-> id() == $news[0] -> id_cus){
+    //             return view('front-end.contents.customer.edit_new', ['full_name' => $full_name, 'new' => $news]);
+    //         }
+    //         //dd($full_name);
+    //         //dd($news);
+    //         return redirect()->route('home');
+    //     }
+    //     else{
+    //         return redirect()->route('client.login.index');
+    //     }
+    // }
     public function edit($id){
         //dd($id);
         if(auth('customer')->check()){
@@ -30,8 +46,7 @@ class MyNewsController extends Controller
             //dd($news);
             return view('front-end.contents.customer.edit_new', ['full_name' => $full_name, 'new' => $news]);
         }
-        else
-        {
+        else{
             return redirect()->route('client.login.index');
         }
     }

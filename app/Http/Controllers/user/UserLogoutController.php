@@ -12,8 +12,7 @@ class UserLogoutController extends Controller
             auth('customer')->logout();
             return redirect()->route('client.login.index');
         }
-        else
-        {
+        else{
             return redirect()->route('client.login.index');
         }
         

@@ -12,33 +12,45 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminEditController extends Controller
 {
-    public function index_cus($id)
-    {
+    // public function index_cus($id){
+    //     $customer = Customer::where('id', '=', $id)->get();
+    //     //dd($customer);
+    //     if(auth('admin')->check()){
+    //         $full_name = Admin::where('id', '=', auth('admin')-> id()) -> get();
+    //         //dd($full_name);
+    //         return view('back-end.contents.home.edit_cus', ['full_name' => $full_name, 'customer' => $customer[0]]);
+    //     }
+    //     else{
+    //         return redirect()->route('admin.login.index');
+    //     }
+    // }
+    // public function index_news($id){
+    //     $new = News::where('id', '=', $id)->get();
+    //     //dd($new);
+    //     if(auth('admin')->check()){
+    //         $full_name = Admin::where('id', '=', auth('admin')-> id()) -> get();
+    //         //dd($full_name);
+    //         return view('back-end.contents.home.edit_new', ['full_name' => $full_name, 'new' => $new[0]]);
+    //     }
+    //     else{
+    //         return redirect()->route('admin.login.index');
+    //     }
+    // }
+    public function index_cus($id){
         $customer = Customer::where('id', '=', $id)->get();
         //dd($customer);
-        if(auth('admin')->check()){
             $full_name = Admin::where('id', '=', auth('admin')-> id()) -> get();
             //dd($full_name);
             return view('back-end.contents.home.edit_cus', ['full_name' => $full_name, 'customer' => $customer[0]]);
-        }
-        else
-        {
-            return redirect()->route('admin.login.index');
-        }
     }
-    public function index_news($id)
-    {
+    public function index_news($id){
         $new = News::where('id', '=', $id)->get();
         //dd($new);
-        if(auth('admin')->check()){
+        
             $full_name = Admin::where('id', '=', auth('admin')-> id()) -> get();
             //dd($full_name);
             return view('back-end.contents.home.edit_new', ['full_name' => $full_name, 'new' => $new[0]]);
-        }
-        else
-        {
-            return redirect()->route('admin.login.index');
-        }
+        
     }
     public function edit_cus(Request $request, $id){
         $data = [
@@ -61,6 +73,7 @@ class AdminEditController extends Controller
         //dd($data);
         return redirect()->route('admin.cus.index');
     }
+
     public function del_cus($id){
         $data = [
             'id_cus' => '2',
@@ -75,14 +88,14 @@ class AdminEditController extends Controller
         session()->flash('success', 'Bạn đã xóa thành công.');
         return redirect()->route('admin.cus.index');
     }
+    
     public function add_cus_index(){
         if(auth('admin')->check()){
             $full_name = Admin::where('id', '=', auth('admin')-> id()) -> get();
             //dd($full_name);
             return view('back-end.contents.home.add_cus', ['full_name' => $full_name]);
         }
-        else
-        {
+        else{
             return redirect()->route('admin.login.index');
         }
     }
@@ -93,7 +106,6 @@ class AdminEditController extends Controller
             'email' => 'required|string|email|unique:cus|max:255',
             'password' => 'required|confirmed|min:6',
         ]);
-
         $data = [
             'full_name' => $request->full_name,
             'email' => $request->email,
@@ -114,8 +126,7 @@ class AdminEditController extends Controller
             //dd($user);
             return view('back-end.contents.home.add_new', ['news' => $news, 'full_name' => $full_name]);
         }
-        else
-        {
+        else{
             return redirect()->route('admin.login.index');
         }
     }

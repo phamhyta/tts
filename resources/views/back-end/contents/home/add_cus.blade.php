@@ -4,7 +4,7 @@
     @csrf
     <div class="mt-20 pt-10 pb-20" style="background-image: url('https://cohet.vn/upload/data/images/BACKGROUND-%202-TECK/hinh-nen-one-piece_102505879.jpg'); min-height:600px">
         <div class="px-10 py-6 flex-col justify-center w-11/12 md-7/12 xl:w-5/12 bg-white m-auto rounded" style="color: #383838;">
-            <div class="font-bold text-lg text-center" style="color: #EF562D">Them nguoi dung</div>
+            <div class="font-bold text-lg text-center" style="color: #EF562D">Thêm người dùng</div>
             {{-- username --}}
             <div class="mt-6 text-center">
                 <input class="placeholder:text-sm px-3 rounded w-5/6 h-8" type="text" id="username" name="username"
@@ -59,7 +59,7 @@
             <div class="mt-5 w-5/6 m-auto">
                 <input type="submit"
                     class="text-white w-full py-1 px-2 bg-orange-600 rounded-md text-center hover:bg-orange-500"
-                    value="Them" style="font-family: Raleway">
+                    value="Thêm" style="font-family: Raleway">
             </div>
         </div>
     </div>

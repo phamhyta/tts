@@ -17,20 +17,18 @@
         <div class="bg-green-300 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
             <div class="flex">
             <div class="py-1"><i class=" fas fa-check-circle fill-current h-6 w-6 text-green-700 mr-4"> </i></div>
-
             <div>
-
                 <p class="text-lg">{{ session()->get('success') }}</p>
             </div>
             </div>
         </div>
     @endif
     <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-        <h1 class="text-2xl font-semibold">Customers manager</h1>
+        <h1 class="text-2xl font-semibold">Quản lý người dùng</h1>
     </div>
     <div class="py-2">
         <a href="{{route('admin.add_cus.index')}}" class="align-middle hover:text-gray-400 border-b-2 border-gray-800">
-            <span class="font-medium">Them nguoi dung</span>
+            <span class="font-medium">Thêm người dùng</span>
         </a>
     </div>
     <div>
@@ -41,7 +39,7 @@
                         <th class="py-3 px-6 text-left">Tên đầy đủ</th>
                         <th class="py-3 px-6 text-left">Tên đăng nhập</th>
                         <th class="py-3 px-6 text-left">Email</th>
-                        <th class="py-3 px-6 text-center">Xoa</th>
+                        <th class="py-3 px-6 text-center">Xóa</th>
                     </tr>
                 </thead>
                 <tbody class="text-sm font-light">
@@ -66,7 +64,7 @@
                         </td>
                         <td class="py-3 px-6 text-center">
                             <div class="flex item-center justify-center">
-                                <a onclick="return confirm('Bạn có chắc là muốn xóa nguoi dung này?')" href="{{ route('admin.cus.del', ['id' => $cus->id]) }}" 
+                                <a onclick="return confirm('Bạn có chắc là muốn xóa người dùng này?')" href="{{ route('admin.cus.del', ['id' => $cus->id]) }}" 
                                 class="active" ui-toggle-class=""><i class="fa fa-times text-danger text"></i></a>  
                             </div>
                         </td>
@@ -79,11 +77,11 @@
 
 
     <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-        <h1 class="text-2xl font-semibold">News manager</h1>
+        <h1 class="text-2xl font-semibold">Quản lý tin tức</h1>
     </div>
     <div class="py-2">
         <a href="{{route('admin.add_new.index')}}" class="align-middle hover:text-gray-400 border-b-2 border-gray-800">
-            <span class="font-medium">Them tin</span>
+            <span class="font-medium">Thêm tin</span>
         </a>
     </div>
     <div class="pb-20">
@@ -91,10 +89,10 @@
             <table class=" w-10/12  mx-auto table-fixed">
                 <thead>
                     <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                        <th class="py-3 px-6 text-left">Tieu de</th>
-                        <th class="py-3 px-6 text-left">Noi dung</th>
-                        <th class="py-3 px-6 text-left">Ngay tao tin</th>
-                        <th class="py-3 px-6 text-center">Xoa</th>
+                        <th class="py-3 px-6 text-left">Tiêu đều</th>
+                        <th class="py-3 px-6 text-left">Nội dung</th>
+                        <th class="py-3 px-6 text-left">Ngày tạo tin</th>
+                        <th class="py-3 px-6 text-center">Xóa</th>
                     </tr>
                 </thead>
                 <tbody class="text-sm font-light">

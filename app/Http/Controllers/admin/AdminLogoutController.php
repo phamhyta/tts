@@ -13,8 +13,7 @@ class AdminLogoutController extends Controller
             auth('admin')->logout();
             return redirect()->route('admin.login.index');
         }
-        else
-        {
+        else{
             return redirect()->route('admin.login.index');
         }
         

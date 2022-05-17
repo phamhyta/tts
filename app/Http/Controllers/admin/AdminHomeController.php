@@ -11,17 +11,24 @@ use App\Models\News;
 
 class AdminHomeController extends Controller
 {
+    // public function manager(){
+    //     if(auth('admin')->check() != true){
+    //         return redirect()->route('admin.login.index');
+    //     }
+    //     else{
+    //         $customer = Customer::whereNot('id', '=', '2') -> limit(12)->get();
+    //         $news = News::limit(12)->get();
+    //         $full_name = Admin::where('id', '=', auth('admin')-> id()) -> get();
+    //         //dd($full_name[0] -> full_name);
+    //         return view('back-end.contents.home.manager', ['customers' => $customer, 'full_name' => $full_name, 'news' => $news]);
+    //     }   
+    // }
     public function manager(){
-        if(auth('admin')->check() != true){
-            return redirect()->route('admin.login.index');
-        }
-        else{
-            $customer = Customer::whereNot('id', '=', '2') -> limit(12)->get();
-            $news = News::limit(12)->get();
-            $full_name = Admin::where('id', '=', auth('admin')-> id()) -> get();
-            //dd($full_name[0] -> full_name);
-            return view('back-end.contents.home.manager', ['customers' => $customer, 'full_name' => $full_name, 'news' => $news]);
-        }   
+        $customer = Customer::whereNot('id', '=', '2') -> limit(12)->get();
+        $news = News::limit(12)->get();
+        $full_name = Admin::where('id', '=', auth('admin')-> id()) -> get();
+        //dd($full_name[0] -> full_name);
+        return view('back-end.contents.home.manager', ['customers' => $customer, 'full_name' => $full_name, 'news' => $news]);
     }
     public function search(Request $request){
         if(auth('admin')->check() != true){

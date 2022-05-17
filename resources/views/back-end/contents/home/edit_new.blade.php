@@ -11,7 +11,7 @@
                 @csrf
                 <div class="mb-4">
                     <label class="block text-sm font-bold mb-2" >
-                        Tieu de
+                        Tiêu đề
                         <span class=" text-base">*</span>
                     </label>
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 
@@ -21,7 +21,7 @@
                 </div> 
                 <div class="mb-4">
                     <label class="block text-sm font-bold mb-2" >
-                        Noi dung
+                        Nội dung
                         <span class=" text-base">*</span>
                     </label>
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 

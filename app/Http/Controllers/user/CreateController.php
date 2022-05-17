@@ -17,8 +17,7 @@ class CreateController extends Controller
             //dd($user);
             return view('front-end.contents.home.create', ['news' => $news, 'full_name' => $full_name]);
         }
-        else
-        {
+        else{
             return redirect()->route('client.login.index');
         }
     }
@@ -30,7 +29,6 @@ class CreateController extends Controller
             'id_cus' => $id_cus
         ];
         $news = new News($data);
-
         $news->save();
         return redirect()->route('client.newlist');
     }

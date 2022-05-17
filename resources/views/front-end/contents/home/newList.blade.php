@@ -39,7 +39,7 @@
                     <tr class="border-b border-gray-200 hover:bg-gray-100 hover:text-black">
                         <td class="py-3 px-6 text-center whitespace-nowrap">
                             <div class="flex items-center">
-                                <a href="{{route('client.news.edit',['id' => $new->id])}}" class="align-middle hover:text-gray-400 border-b-2 border-gray-800">
+                                <a href="{{route('client.news.edit',['id' => $new->id])}}" name="title" class="align-middle hover:text-gray-400 border-b-2 border-gray-800">
                                     <span class="font-medium">{{$new->title}}</span>
                                 </a>
                             </div>

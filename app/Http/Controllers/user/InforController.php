@@ -15,8 +15,7 @@ class InforController extends Controller
             //dd($full_name[0]);
             return view('front-end.contents.customer.info', ['full_name' => $full_name]);
         }
-        else
-        {
+        else{
             return redirect()->route('client.login.index');
         }
     }
@@ -26,8 +25,7 @@ class InforController extends Controller
             //dd($user);
             return view('front-end.contents.customer.change_info', ['full_name' => $full_name]);
         }
-        else
-        {
+        else{
             return redirect()->route('client.login.index');
         }
     }

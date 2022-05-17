@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="md:flex mx-3">
-                        <div class="md:w-1/4 lg:ml-12 mt-8 font-bold">Username</div>
+                        <div class="md:w-1/4 lg:ml-12 mt-8 font-bold">Tên đăng nhập</div>
                         <div class="md:w-2/3 md:pr-8 lg:pr-16">
                             <input class="w-full pl-4 md:mt-8 text-black text-sm outline-none border border-1 py-2 pl-2 rounded" type="text" 
                             id="username" name="username"
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="md:flex mx-3">
-                        <div class="md:w-1/4 lg:ml-12 mt-2 md:mt-8 font-bold">Thay đổi thong tin</div>
+                        <div class="md:w-1/4 lg:ml-12 mt-2 md:mt-8 font-bold">Thay đổi thông tin</div>
                         <div class="md:w-1/2 md:mt-8 md:pr-16">
                             <a href="{{ route('client.change-info.index') }}" class="text-orange-600 hover:text-gray-500 font-bold">Chỉnh sửa</a>
                         </div>

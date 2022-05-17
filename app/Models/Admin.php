@@ -9,7 +9,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Admin extends Authenticatable
 {
     use HasFactory;
-    protected $guard = 'admin';
     protected $fillable = [
         'username',
         'password',
@@ -21,6 +20,4 @@ class Admin extends Authenticatable
         'password',
         'remember_token'
     ];
-    protected $dates = ['created_at', 'updated_at'];
-
 }

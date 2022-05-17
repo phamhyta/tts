@@ -10,7 +10,7 @@
             <div class="font-light text-xl">Đăng nhập</div>
             <div class="mt-4">
                 <input class="placeholder:text-sm rounded w-5/6  h-8 text-black px-5"
-                        type="text" name="username" id="username" placeholder="Tài khoản">
+                        type="text" name="username" id="username" placeholder="Tài khoản/Email">
                 </div>
             <div class="mt-3">
                 <input class="placeholder:text-sm rounded w-5/6 h-8 text-black px-5"
@@ -23,7 +23,7 @@
             @enderror
             <div class="mt-5">
                 <input type="submit" class="m-auto w-5/6 py-1 px-2 bg-orange-600 rounded-md text-center
-                    hover:bg-orange-500" value="Đăng nhập">
+                    hover:bg-orange-500" name="submit" value="Đăng nhập">
             </div>
             <div class="mt-4 m-auto flex justify-between w-5/6 text-xs">
                 <div class="italic hover:underline"><a href="{{ route('account.password.forget')}}">  Quên mật khẩu ? </a></div>

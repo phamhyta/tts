@@ -10,7 +10,7 @@
             <div class="font-light text-xl">Đăng nhập</div>
             <div class="mt-4">
                 <input class="placeholder:text-sm rounded w-5/6  h-8 text-black px-5"
-                        type="text" name="username" id="username" placeholder="Tài khoản">
+                        type="text" name="username" id="username" placeholder="Tài khoản/Email">
                 </div>
             <div class="mt-3">
                 <input class="placeholder:text-sm rounded w-5/6 h-8 text-black px-5"

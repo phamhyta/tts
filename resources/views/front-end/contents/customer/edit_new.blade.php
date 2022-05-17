@@ -3,7 +3,7 @@
 <div class="flex-1 h-full overflow-x-hidden overflow-y-auto ">
     <main>
         <div class="flex items-center pt-20 justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-            <h1 class="text-2xl font-semibold">News | Edit</h1>
+            <h1 class="text-2xl font-semibold">Chỉnh sửa tin: </h1>
         </div>
         <!-- Content -->
         <div>
@@ -11,7 +11,7 @@
                 @csrf
                 <div class="mb-4">
                     <label class="block text-sm font-bold mb-2" >
-                        Tieu de
+                        Tiêu đề
                         <span class=" text-base">*</span>
                     </label>
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 
@@ -21,7 +21,7 @@
                 </div> 
                 <div class="mb-4">
                     <label class="block text-sm font-bold mb-2" >
-                        Noi dung
+                        Nội dung
                         <span class=" text-base">*</span>
                     </label>
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 

@@ -27,21 +27,15 @@ class ForgetPassController extends Controller
         $data = [
             'token' => $request->token
         ];
-        
         $data['token'] = $token;
         //dd($data, $token);
         Customer::where('email','=', $request->email)->update($data);
-        
         $cus = Customer::where('email','=', $request->email) ->first();
         //dd($token, $cus);
-        try {
-            Mail::send('front-end.email.email-check-forgetpass', compact('cus'), function($email) use($cus) {
-                $email -> subject('TranXuanHuong.Com - Lấy lại mật khẩu tài khoản');
-                $email -> to($cus-> email, $cus -> full_name);
-            });
-        } catch (\Throwable $th) {
-            return redirect() -> back() -> with('no', 'abc');
-        }
+        Mail::send('front-end.email.email-check-forgetpass', compact('cus'), function($email) use($cus) {
+            $email -> subject('TranXuanHuong.Com - Lấy lại mật khẩu tài khoản');
+            $email -> to($cus-> email, $cus -> full_name);
+        });
         return redirect() -> back() -> with('yes', 'Vui lòng check mail để thực hiện thay đổi mật khẩu');
     }
     public function getPass(int $id, $token){
@@ -61,10 +55,11 @@ class ForgetPassController extends Controller
             'token' => $token
         ];
         $data['password'] = Hash::make($request -> password);
-        //$data['password'] = $request -> password;
         $data['token'] = null;
         //dd($data);
         Customer::where('id', $id)->update($data);
+        auth('customer')->attempt($request->only('username', 'password'));
+        //return redirect()->route('home');
         return redirect() -> route('client.info.index') -> with('yes', 'Đổi mật khẩu thành công');
     }
 }

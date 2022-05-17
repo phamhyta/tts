@@ -9,12 +9,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Customer extends Authenticatable
 {
     use HasFactory;
-    protected $guard = 'cus';
     protected $fillable = [
         'username',
         'password',
         'full_name',
         'email',
+    ];
+    protected $hidden = [
+        'password',
+        'token'
     ];
     protected $table = 'cus';
 }

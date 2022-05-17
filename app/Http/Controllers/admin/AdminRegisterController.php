@@ -9,18 +9,17 @@ use App\Models\Admin;
 use App\Events\AdminRegister;
 class AdminRegisterController extends Controller
 {
-    public function rindex(){
+    public function index(){
         return view('back-end.contents.admin.register');
     }
 
-    public function rstore(Request $request){
+    public function store(Request $request){
         $request->validate([
             'full_name' => 'required|max:255',
             'username' => 'required|max:255',
-            'email' => 'required|string|email|unique:cus|max:255',
+            'email' => 'required|string|email|unique:admin|max:255',
             'password' => 'required|confirmed|min:6',
         ]);
-
         $data = [
             'full_name' => $request->full_name,
             'email' => $request->email,
@@ -29,18 +28,8 @@ class AdminRegisterController extends Controller
         ];
         //dd($data);
         $admin = new Admin($data);
-
         $admin->save();
-
-        $data_client = [
-            'id' => $admin->id,
-            'username' => $request->username,
-        ];
-
-        event(new AdminRegister($data_client));
-
         auth('admin')->attempt($request->only('username', 'password'));
-
         return redirect()->route('admin.cus.index');
     }
 }

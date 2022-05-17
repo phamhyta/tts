@@ -15,17 +15,6 @@ use App\Http\Controllers\user\MyNewsController;
 use App\Http\Controllers\user\ForgetPassController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 //========================FE=================================
 Route::get('/', [
     NewsController::class, 'index'
@@ -53,10 +42,10 @@ Route::prefix('client')->group(function() {
     ])->name('client.logout');
     //register
     Route::get('/register', [
-        UserRegisterController::class, 'rindex'
+        UserRegisterController::class, 'index'
     ])->name('client.register.index');
     Route::post('/register', [
-        UserRegisterController::class, 'rstore'
+        UserRegisterController::class, 'store'
     ])->name('client.register.store');
     
     //change-info
@@ -99,6 +88,10 @@ Route::prefix('client')->group(function() {
     Route::post('/newlist', [
         MyNewsController::class, 'search'
     ])->name('client.create.search');
+    //new-detail
+    Route::get('/news/{id}', [
+        NewsController::class, 'detail'
+    ])->name('client.news.detail');
 });
 
 //forget pass
@@ -133,10 +126,10 @@ Route::prefix('admin')->group(function() {
     ])->name('admin.logout');
     //register
     Route::get('/register', [
-        AdminRegisterController::class, 'rindex'
+        AdminRegisterController::class, 'index'
     ])->name('admin.register.index');
     Route::post('/register', [
-        AdminRegisterController::class, 'rstore'
+        AdminRegisterController::class, 'store'
     ])->name('admin.register.store');
 
 
@@ -175,7 +168,6 @@ Route::prefix('admin')->group(function() {
     Route::post('/manager/news/{id}', [
         AdminEditController::class, 'edit_news'
     ])->name('admin.news.edit');
-
 
     //delete
     Route::get('/manager/cus/del/{id}', [
