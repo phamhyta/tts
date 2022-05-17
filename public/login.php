@@ -28,12 +28,28 @@ if (isset($_POST['dangnhap']))
     // $password = addslashes($_POST['password']);
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $query = "SELECT * FROM cus WHERE username='".$username."' AND password='".$password."'";
+    //$query = "SELECT * FROM cus WHERE username='".$username."' AND password='".$password."'";
+    $query = "SELECT * FROM cus WHERE username='".$username."'";
     $result = mysqli_query($conn, $query);
-    if (!mysqli_num_rows($result)) {
-        echo '<div id="respon">Tên đăng nhập hoặc mật khẩu không đúng!</div>';
-    } else{
-        echo '<div id="respon">Xin chào <b>" '.$username .' "</b>. Bạn đã đăng nhập thành công.</div>';
+    //In_band
+    // if (!mysqli_num_rows($result)) {
+    //     echo '<div id="respon">Tên đăng nhập hoặc mật khẩu không đúng!</div>';
+    // } else{
+    //     echo '<div id="respon">Xin chào <b>" '.$username .' "</b>. Bạn đã đăng nhập thành công.</div>';
+    // }
+    echo"$query";
+    if (mysqli_num_rows($result) == 0) {
+        echo '<div id="respon">Tên đăng nhập này không tồn tại</div>';
     }
+    else{
+        $row = mysqli_fetch_array($result);
+        if ($password != $row['password']) {
+            echo '<div id="respon">Mật khẩu không đúng.</div>';
+        }
+        else{
+            echo '<div id="respon">Xin chào <b>" '.$username .' "</b>. Bạn đã đăng nhập thành công.</div>';
+        }
+    }
+
 }
 ?>
